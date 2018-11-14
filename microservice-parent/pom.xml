@@ -75,5 +75,6 @@
 		<module>microservice-aip</module>
 		<module>microservice-provider-dept</module>
 		<module>microservice-consumer-dept</module>
+		<module>microservice-eureka-server</module>
 	</modules>
 </project>
