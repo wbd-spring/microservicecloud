@@ -11,7 +11,7 @@ mybatis:
     
 spring:
    application:
-    name: microservice-dept 
+    name: microservice-provider-dept 
    datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
     driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
@@ -23,3 +23,23 @@ spring:
       initial-size: 5                                       # 初始化连接数
       max-total: 5                                          # 最大连接数
       max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+      
+#客户端注册到 eureka的服务器
+eureka:
+  client:
+   service-url:
+      #客户端注册到单机服务器中 defaultZone: http://localhost:8080/eureka
+      #客户端注册到集群版服务器中
+     defaultZone: http://localhost:8080/eureka/,http://localhost:8070/eureka/,http://localhost:8090/eureka/
+  instance:
+     instance-id: microservice-provider-dept8001 #自定义服务器名称
+     prefer-ip-address: true #访问路径显示ip地址
+      
+info:
+   app.name: microservice-provider-dept8001
+   company.name: http://www.wanbeidai.com
+   build.artifactId: $project.artifactId$
+   build.version: $project.version$
+   
+       
+      

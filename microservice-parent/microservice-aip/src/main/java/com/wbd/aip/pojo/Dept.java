@@ -39,10 +39,10 @@ public class Dept implements Serializable{
 	
 	public static void main(String[] args) {
 		
-		Dept d = new Dept();
-		d.setDname("abc").setDeptno(110l);
-		
-		System.out.println(d.getDname());
+//		Dept d = new Dept();
+//		d.setDname("abc").setDeptno(110l);
+//		
+//		System.out.println(d.getDname());
 		
 	}
 	

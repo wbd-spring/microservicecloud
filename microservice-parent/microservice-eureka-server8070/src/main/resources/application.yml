@@ -1,9 +1,9 @@
 server:
-  port: 8080
+  port: 8070
   
 eureka:
   instance: 
-    hostname: localhost8080 #eureka实例名称
+    hostname: localhost8070 #eureka实例名称
     
   client:
    register-with-eureka: false  #服务中心不需要注册其他地方，客户端才需要注册到服务中心,默认为true,即为客户端，需要注册
@@ -12,6 +12,6 @@ eureka:
     #单机版 defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
      #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址。
      #集群版，服务注册中心
-    defaultZone: http://localhost8070:8070/eureka/,http://localhost8090:8090/eureka/
+    defaultZone: http://localhost8080:8080/eureka/,http://localhost8090:8090/eureka/
    
  
