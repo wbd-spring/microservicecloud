@@ -100,7 +100,7 @@
 		<module>microservice-provider-dept</module>
 		<module>microservice-consumer-dept</module>
 		<module>microservice-eureka-server</module>
-		<module>microservice-eureka-server8090</module>
-		<module>microservice-eureka-server8070</module>
+		
+		
 	</modules>
 </project>

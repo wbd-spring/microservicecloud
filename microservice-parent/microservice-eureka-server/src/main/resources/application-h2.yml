@@ -1,0 +1,15 @@
+server: 
+  port: 8080
+  
+eureka:
+  instance: 
+    hostname: h2 #eureka实例名称
+    
+  client: 
+   service-url:
+    #单机版 defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+     #设置与Eureka Server交互的地址查询服务和注册服务都需要依赖这个地址。
+     #集群版，服务注册中心
+    defaultZone: http://h1:8070/eureka/,http://h3:8090/eureka/
+   
+ 
