@@ -15,7 +15,10 @@ import com.wbd.aip.pojo.Dept;
 @RestController
 public class DeptConsumer {
 	
-	private static final String REST_URL_PRE="http://localhost:8001";
+
+	//private static final String REST_URL_PRE="http://localhost:8001";
+	//消费者通过微服务名称来访问
+	private static final String REST_URL_PRE="http://MICROSERVICE-PROVIDER-DEPT";
 	//注入RestTemplate对象， 已经再ConfBean类中注入了bean
 	
 	@Autowired
