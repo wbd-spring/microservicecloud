@@ -1,0 +1,35 @@
+server:
+  port: 5555
+  
+  
+zuul:
+  prefix: /wbd   ##前缀
+  ignored-services: "*"  ##忽略所有的服务， 只能以下配置的服务可以正常访问
+  routes: 
+     myconsumer.serviceId: CONSUMER
+     myconsumer.path: /c/**
+
+spring:
+   application:
+    name: microservice-zuul-gateway 
+                          
+      
+#客户端注册到 eureka的服务器
+eureka:
+  client:
+   service-url:
+      #客户端注册到单机服务器中 defaultZone: http://localhost:8080/eureka
+      #客户端注册到集群版服务器中
+     defaultZone: http://h1:8070/eureka/,http://h2:8080/eureka/,http://h3:8090/eureka/
+  instance:
+     instance-id: microservice-zuul-gateway5555 #自定义服务器名称
+     prefer-ip-address: true #访问路径显示ip地址
+      
+info:
+   app.name: microservice-zuul-gateway
+   company.name: http://www.wanbeidai.com
+   build.artifactId: $project.artifactId$
+   build.version: $project.version$
+   
+       
+      

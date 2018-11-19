@@ -2,8 +2,7 @@ spring:
   application:
     name: eureka-server
 
-eureka:
-
+eureka: 
   client:
    register-with-eureka: false  #服务中心不需要注册其他地方，客户端才需要注册到服务中心,默认为true,即为客户端，需要注册
    fetch-registry: false #表示自己就是注册中心，我的职责是维护实例，不是去检索服务

@@ -13,7 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import com.wbd.aip.pojo.Dept;
 
 @RestController
-public class DeptConsumer {
+public class DeptRibbonConsumer {
 	
 
 	//private static final String REST_URL_PRE="http://localhost:8001";

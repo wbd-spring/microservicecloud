@@ -11,6 +11,35 @@
 	<artifactId>microservice-consumer-dept</artifactId>
 	<dependencies>
 
+<!-- feign相关， feign整合了ribbon和eureka，
+
+ribbon通过 微服务名加resttemplate来实现， 
+而我们实际开发中是通过接口编程，所以才出现了feign
+，feign通过接口声明与注解 实现微服务。
+feign与ribbon都是在消费者端进行实现， 因为我们用的是进程内（客户端）的LB,不是集中式的LB(Nginx,F5)
+ -->
+
+ <dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-feign</artifactId>
+   </dependency>
+
+
+
+<!-- hystrix与hystrix dashboard -->
+
+
+  <dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-hystrix</artifactId>
+   </dependency>
+   
+   <!-- 微服务图形化界面监控显示 -->
+   <dependency>
+       <groupId>org.springframework.cloud</groupId>
+       <artifactId>spring-cloud-starter-hystrix-dashboard</artifactId>
+   </dependency> 
+
 		<!-- Ribbon相关 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

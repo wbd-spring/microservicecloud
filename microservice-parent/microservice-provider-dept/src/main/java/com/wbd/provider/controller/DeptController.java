@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.wbd.aip.pojo.Dept;
 import com.wbd.provider.service.DeptService;
 
@@ -24,10 +25,17 @@ public class DeptController {
 		return deptService.add(dept);
 	}
 	
+	
 	@RequestMapping("/dept/get/{id}")
 	@GetMapping
+	@HystrixCommand(fallbackMethod="processHystrixGetId")//@HystrixCommand断路器
 	public Dept getDeptById(@PathVariable Long id) {
-		return deptService.get(id);
+		Dept dept = deptService.get(id);
+		if(dept==null) {
+			
+			throw new RuntimeException("该id"+id+"没有对应的部门信息");
+		}
+		return dept;
 	}
 	
 	@RequestMapping(value="/dept/list",method=RequestMethod.GET)
@@ -35,6 +43,19 @@ public class DeptController {
 		
 		System.out.println("ribbon LBS customer........");
 		return deptService.list();
+	}
+	
+	/**
+	 * 断路器方法
+	 * <p>Title: processHystrixGetId</p>  
+	 * <p>Description: </p>  
+	 * @param id
+	 * @return
+	 */
+	public Dept processHystrixGetId(@PathVariable Long id) {
+		Dept  dept = new Dept();
+		dept.setDeptno(id).setDname("没有对应"+id+"信息").setDb_source("NO");
+		return dept;
 	}
 
 }

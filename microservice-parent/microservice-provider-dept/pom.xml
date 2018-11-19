@@ -50,6 +50,12 @@
      <artifactId>spring-boot-starter-test</artifactId>
    </dependency>
    
+     <!--  hystrix  服务熔断，断路器， 是放在消息提供端， 服务降级是放在消费端-->
+   <dependency>
+     <groupId>org.springframework.cloud</groupId>
+     <artifactId>spring-cloud-starter-hystrix</artifactId>
+   </dependency>
+   
    <!-- actuator监控信息的完善 -->
     <dependency>
      <groupId>org.springframework.boot</groupId>
